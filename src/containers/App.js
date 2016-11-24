@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as DoorActions from '../actions/DoorActions';
 import Door from '../components/Door';
+import CalendarWindow from '../components/CalendarWindow'
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -18,7 +19,8 @@ export class App extends Component {
         return (
             <div className="main-app-container">
                 <div className="main-app-nav">Advent Calendar {this.props.openDoor}</div>
-                {doors}
+                    <div className="doors-container">{doors}</div>
+                    <CalendarWindow openDoor={openDoor}/>
             </div>
         );
     }
