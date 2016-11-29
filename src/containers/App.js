@@ -15,12 +15,20 @@ export class App extends Component {
         // we can use ES6's object destructuring to effectively 'unpack' our props
         const {openDoor, actions} = this.props;
         const NUMBER_OF_DOORS = 24;
-        const doors = new Array(NUMBER_OF_DOORS).fill().map((_, idx) => <Door doorId={idx+1} isOpen={idx+1 === openDoor} actions={actions}/>);
+        const NUMBER_OF_COLUMNS = 8;
+        const NUMBER_OF_ROWS = NUMBER_OF_DOORS / NUMBER_OF_COLUMNS;
+
+        const doors = new Array(NUMBER_OF_DOORS).fill().map((_, idx) => Math.floor(idx / NUMBER_OF_ROWS) + (idx % NUMBER_OF_ROWS) * NUMBER_OF_COLUMNS).map(idx => (
+            <li><Door doorId={idx + 1} isOpen={idx + 1 === openDoor} actions={actions}/></li>));
         return (
             <div className="main-app-container">
                 <div className="main-app-nav">Advent Calendar {this.props.openDoor}</div>
-                    <div className="doors-container">{doors}</div>
-                    <CalendarWindow openDoor={openDoor}/>
+                <div className="doors-container">
+                    <ul>
+                        {doors}
+                    </ul>
+                </div>
+                <CalendarWindow openDoor={openDoor}/>
             </div>
         );
     }
