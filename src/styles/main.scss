@@ -7,6 +7,8 @@ $accent-black: #35342f;
 $accent-orange: #ec6b2d;
 $accent-red: #dd6464;
 
+$relative-door-size: 8vh;
+
 body {
   background-color: $main-bg-color;
   color: $accent-black;
@@ -39,24 +41,33 @@ body {
   text-transform: uppercase;
   letter-spacing: 3px;
 }
+.door-container {
+
+  margin-bottom: 1vh;
+}
 
 .door-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 3em;
+}
 
-  button {
-    background-color: #CCC;
-    border: none;
-    height: 30px;
-    width: 80px;
-    margin-left: 1em;
-    margin-right: 1em;
+.button {
+  outline:none;
+  background: transparent;
+  border: medium solid #000;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: x-large;
+  height:$relative-door-size;
+  width: $relative-door-size;
 
-    &:hover {
-      background-color: $accent-gray;
-    }
+  &:hover {
+    background-color: $accent-gray;
   }
 }
 
@@ -82,4 +93,6 @@ footer {
 ul {
   columns: 8  ;
   list-style-type: none;
+  width:130vh;
+  padding: 0%;
 }

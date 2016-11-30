@@ -22,7 +22,7 @@ export class App extends Component {
             <li><Door doorId={idx + 1} isOpen={idx + 1 === openDoor} actions={actions}/></li>));
         return (
             <div className="main-app-container">
-                <div className="main-app-nav">Advent Calendar {this.props.openDoor}</div>
+                {/*<div className="main-app-nav">Advent Calendar</div>*/}
                 <div className="doors-container">
                     <ul>
                         {doors}

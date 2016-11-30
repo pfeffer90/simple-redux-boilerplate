@@ -27,9 +27,9 @@ export default class Door extends Component {
         return (
             <div className="door-container">
                 <div className="door-button">
-                    <button onClick={() => {
+                    <button className="button" onClick={() => {
                         this.handleClick()
-                    }}> {this.props.doorId + (this.props.isOpen ? " open" : " close")}
+                    }}> {this.props.doorId}
                     </button>
                 </div>
             </div>

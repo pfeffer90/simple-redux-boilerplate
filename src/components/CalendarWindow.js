@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {markdown} from 'markdown';
+import {get_calendar_content} from '../services/content-provider'
 
 export default class CalendarWindow extends Component {
 
     constructor(props, context) {
         super(props, context);
-        this.calendarEntries = ["FIRST", "SECOND"];
+        this.calendarEntries = get_calendar_content();
     }
 
     getCalendarWindowContent() {
@@ -18,7 +19,6 @@ export default class CalendarWindow extends Component {
     render() {
         return (
             <div className="calendar-window-container">
-                <p>{this.props.openDoor}</p>
                 <div className="calendar-window-content"
                      dangerouslySetInnerHTML={{__html: this.getCalendarWindowContent()}}/>
             </div>
