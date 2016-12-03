@@ -1,3 +1,4 @@
+import {calendar_day_has_passed} from '../services/date-checker';
 import React, {Component, PropTypes} from 'react';
 
 export default class Door extends Component {
@@ -18,7 +19,12 @@ export default class Door extends Component {
             this.handleClosing()
         }
         else {
-            this.handleOpening()
+            if(calendar_day_has_passed(this.props.doorId)) {
+                this.handleOpening();
+            }
+            else {
+                alert('Not yet :)');
+            }
         }
 
     }

@@ -10,7 +10,7 @@ export default class CalendarWindow extends Component {
     }
 
     getCalendarWindowContent() {
-        const DEFAULT_WINDOW_CONTENT = "No entry for this day.";
+        const DEFAULT_WINDOW_CONTENT = "Open a calendar window.";
         const md_content = this.calendarEntries[this.props.openDoor-1] ? this.calendarEntries[this.props.openDoor-1] : DEFAULT_WINDOW_CONTENT ;
         return markdown.toHTML(md_content);
 
